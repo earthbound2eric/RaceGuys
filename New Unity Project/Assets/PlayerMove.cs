@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour {
     public int playerJumpPower = 1000;
     public float moveX;
     public bool isGrounded;
+    public float dVelocity;
 
 	// Use this for initialization
 	void Start () {
@@ -37,8 +38,11 @@ public class PlayerMove : MonoBehaviour {
     }
     void Jump()
     {
-        GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpPower);
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(playerSpeed, 0);
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up * (playerJumpPower - gameObject.GetComponent<Rigidbody2D>().velocity.y));
         isGrounded = false;
+        
+
     }
     void FlipPlayer()
     {
@@ -52,7 +56,10 @@ public class PlayerMove : MonoBehaviour {
         if (collision.gameObject.tag =="ground")
         {
             isGrounded = true;
+
         }
+       
+        
     }
 }
 

@@ -12,7 +12,7 @@ public class Death : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(gameObject.transform.position.y<-7)
+		if(gameObject.transform.position.y<-3)
         {
             hasDied = true;
 
