@@ -5,16 +5,15 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour {
     public int playerSpeed = 10;
     private bool facingRight = false;
-    public int playerJumpPower = 1000;
+    public int playerJumpPower = 200;
     public float moveX;
     public bool isGrounded;
     public float dVelocity;
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
-	
 	// Update is called once per frame
 	void Update () {
         PlayerMove1();
@@ -41,8 +40,22 @@ public class PlayerMove : MonoBehaviour {
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(playerSpeed, 0);
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * (playerJumpPower - gameObject.GetComponent<Rigidbody2D>().velocity.y));
         isGrounded = false;
-        
+        playerJumpPower = 200;
 
+    }
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.name == "Candle")
+        {
+            Destroy(collider.gameObject); 
+            isGrounded = true;
+        }
+        else if(collider.gameObject.name == "Wood")
+        {
+            playerJumpPower = 300;
+            Jump();
+            
+        }
     }
     void FlipPlayer()
     {
@@ -53,7 +66,7 @@ public class PlayerMove : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag =="ground")
+        if (collision.gameObject.tag =="ground" || collision.gameObject.tag == "jumpAgain")
         {
             isGrounded = true;
 
