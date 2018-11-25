@@ -17,4 +17,5 @@ public class BlockMove : MonoBehaviour {
 	void Update () {
         transform.position = new Vector2(Mathf.PingPong(Time.time, maxX - minX) + minX, transform.position.y);
     }
+    
 }

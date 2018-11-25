@@ -8,6 +8,8 @@ TagManager:
   - jumpAgain
   - JumpBlock
   - Move Block
+  - MoveVerticalBlock
+  - enemy
   layers:
   - Default
   - TransparentFX

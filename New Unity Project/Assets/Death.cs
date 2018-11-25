@@ -21,7 +21,14 @@ public class Death : MonoBehaviour {
         {
             StartCoroutine("Die");
         }
-	}
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "enemy")
+        {
+            SceneManager.LoadScene("level_1");
+        }
+    }
     IEnumerator Die()
     {
         SceneManager.LoadScene("Level_1");

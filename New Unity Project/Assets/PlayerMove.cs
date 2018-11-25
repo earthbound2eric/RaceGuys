@@ -9,37 +9,36 @@ public class PlayerMove : MonoBehaviour {
     public float moveX;
     public bool isGrounded;
     public float dVelocity;
-    
 
-	// Use this for initialization
-	void Start () {
-        
+
+    // Use this for initialization
+    void Start() {
+
     }
-	// Update is called once per frame
-	void Update () {       
+    // Update is called once per frame
+    void Update() {
         PlayerMove1();
-	}
+    }
     void PlayerMove1()
     {
         moveX = Input.GetAxis("Horizontal");
-        if(Input.GetButtonDown("Jump") == true && isGrounded==true)
+        if (Input.GetButtonDown("Jump") == true && isGrounded == true)
         {
             Jump();
         }
-        if(moveX<0.0f&&facingRight==false)
+        if (moveX < 0.0f && facingRight == false)
         {
             FlipPlayer();
         }
-        else if(moveX>0.0f&&facingRight==true)
+        else if (moveX > 0.0f && facingRight == true)
         {
             FlipPlayer();
         }
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
-        
     }
     void Jump()
-    {       
-        
+    {
+        transform.parent = null;
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(playerSpeed, 0);
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * (playerJumpPower - gameObject.GetComponent<Rigidbody2D>().velocity.y));
         isGrounded = false;
@@ -50,18 +49,13 @@ public class PlayerMove : MonoBehaviour {
     {
         if (collider.gameObject.name == "Candle")
         {
-            Destroy(collider.gameObject);  
+            Destroy(collider.gameObject);
             isGrounded = true;
         }
-        else if(collider.gameObject.name == "Wood")
+        else if (collider.gameObject.name == "Wood")
         {
             playerJumpPower = 300;
             Jump();
-            
-        }
-        else if(collider.gameObject.tag=="Move Block")
-        {                      
-           
         }
     }
     void FlipPlayer()
@@ -73,13 +67,14 @@ public class PlayerMove : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag =="ground" || collision.gameObject.tag == "jumpAgain"||collision.gameObject.tag=="Move Block")
+        if (collision.gameObject.tag == "ground" || collision.gameObject.tag == "jumpAgain")
         {
             isGrounded = true;
-
+            transform.parent = null;
+        } else if (collision.gameObject.tag == "Move Block" || collision.gameObject.tag == "MoveVerticalBlock") {
+            isGrounded = true;
+            transform.parent = collision.transform;
         }
-       
-        
     }
 }
 
