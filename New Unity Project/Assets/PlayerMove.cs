@@ -9,13 +9,14 @@ public class PlayerMove : MonoBehaviour {
     public float moveX;
     public bool isGrounded;
     public float dVelocity;
+    
 
 	// Use this for initialization
 	void Start () {
-
-	}
+        
+    }
 	// Update is called once per frame
-	void Update () {
+	void Update () {       
         PlayerMove1();
 	}
     void PlayerMove1()
@@ -34,9 +35,11 @@ public class PlayerMove : MonoBehaviour {
             FlipPlayer();
         }
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+        
     }
     void Jump()
-    {
+    {       
+        
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(playerSpeed, 0);
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * (playerJumpPower - gameObject.GetComponent<Rigidbody2D>().velocity.y));
         isGrounded = false;
@@ -47,7 +50,7 @@ public class PlayerMove : MonoBehaviour {
     {
         if (collider.gameObject.name == "Candle")
         {
-            Destroy(collider.gameObject); 
+            Destroy(collider.gameObject);  
             isGrounded = true;
         }
         else if(collider.gameObject.name == "Wood")
@@ -55,6 +58,10 @@ public class PlayerMove : MonoBehaviour {
             playerJumpPower = 300;
             Jump();
             
+        }
+        else if(collider.gameObject.tag=="Move Block")
+        {                      
+           
         }
     }
     void FlipPlayer()
@@ -66,7 +73,7 @@ public class PlayerMove : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag =="ground" || collision.gameObject.tag == "jumpAgain")
+        if (collision.gameObject.tag =="ground" || collision.gameObject.tag == "jumpAgain"||collision.gameObject.tag=="Move Block")
         {
             isGrounded = true;
 
