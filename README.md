@@ -6,3 +6,4 @@ Repo for Race guys final project
 * RG-04 camera settings changed
 * RG-05 platforms move and enemy initialized
 * RG-06 menus implemented
+* RG-07 added more enemies

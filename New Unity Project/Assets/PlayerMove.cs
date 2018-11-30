@@ -47,12 +47,12 @@ public class PlayerMove : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.name == "Candle")
+        if (collider.gameObject.tag == "jumpAgain")
         {
             Destroy(collider.gameObject);
             isGrounded = true;
         }
-        else if (collider.gameObject.name == "Wood")
+        else if (collider.gameObject.tag == "spring")
         {
             playerJumpPower = 300;
             Jump();
