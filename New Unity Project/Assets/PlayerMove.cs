@@ -34,7 +34,10 @@ public class PlayerMove : MonoBehaviour {
         {
             FlipPlayer();
         }
+
+
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+        
     }
     void Jump()
     {
@@ -54,6 +57,7 @@ public class PlayerMove : MonoBehaviour {
         }
         else if (collider.gameObject.tag == "spring")
         {
+            isGrounded = false;
             playerJumpPower = 300;
             Jump();
         }
