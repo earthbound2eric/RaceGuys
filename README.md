@@ -7,3 +7,4 @@ Repo for Race guys final project
 * RG-05 platforms move and enemy initialized
 * RG-06 menus implemented
 * RG-07 added more enemies
+* RG-08 level select screen functional, levels functional

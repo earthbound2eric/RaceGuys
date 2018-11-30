@@ -7,10 +7,19 @@ public class MainMenu : MonoBehaviour {
 
 	public void PlayGame()
     {
-        SceneManager.LoadScene("Level_1");
+        if (PlayerPrefs.GetInt("levelPassed") != 0)
+        {
+            SceneManager.LoadScene("Level Select Screen");
+        }
     }
+
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public void NewGame()
+    {
+        PlayerPrefs.SetInt("levelPassed", 6);
+        SceneManager.LoadScene("Level Select Screen");
     }
 }

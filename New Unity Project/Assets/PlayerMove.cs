@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour {
     public int playerSpeed = 10;
@@ -9,7 +11,7 @@ public class PlayerMove : MonoBehaviour {
     public float moveX;
     public bool isGrounded;
     public float dVelocity;
-
+    bool canPlayerMove = true;
 
     // Use this for initialization
     void Start() {
@@ -17,7 +19,10 @@ public class PlayerMove : MonoBehaviour {
     }
     // Update is called once per frame
     void Update() {
-        PlayerMove1();
+        if (canPlayerMove)
+        {
+            PlayerMove1();
+        }
     }
     void PlayerMove1()
     {
@@ -79,6 +84,18 @@ public class PlayerMove : MonoBehaviour {
             isGrounded = true;
             transform.parent = collision.transform;
         }
+        if (collision.gameObject.tag == "finish flag")
+        {
+            canPlayerMove = false;
+            Invoke("win", 0.5f);
+        }
+    }
+    private void win()
+    {
+        //string currentLevel = SceneManager.GetActiveScene().name;
+        int currentLevel = int.Parse(SceneManager.GetActiveScene().name[6].ToString());
+        PlayerPrefs.SetInt("levelPassed", currentLevel);
+        SceneManager.LoadScene("Level Select Screen");
     }
 }
 

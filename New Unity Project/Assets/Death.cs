@@ -26,12 +26,12 @@ public class Death : MonoBehaviour {
     {
         if (collision.gameObject.tag == "enemy")
         {
-            SceneManager.LoadScene("level_1");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
     IEnumerator Die()
     {
-        SceneManager.LoadScene("Level_1");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         yield return null;
     }
 }
