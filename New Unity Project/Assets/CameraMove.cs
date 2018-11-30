@@ -7,9 +7,9 @@ public class CameraMove : MonoBehaviour {
     // Use this for initialization
     private GameObject player;
     public float xMax;
-    public float xMin;
+    public float xMin= -0.257f;
     public float yMax;
-    public float yMin;
+    public float yMin = 1.0f;
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
 	}

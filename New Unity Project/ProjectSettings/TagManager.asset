@@ -11,6 +11,7 @@ TagManager:
   - MoveVerticalBlock
   - enemy
   - spring
+  - finish flag
   layers:
   - Default
   - TransparentFX
