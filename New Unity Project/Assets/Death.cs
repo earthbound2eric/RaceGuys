@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class Death : MonoBehaviour {
     public bool hasDied;
 	// Use this for initialization

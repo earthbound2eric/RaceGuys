@@ -6,8 +6,8 @@ public class PauseMenu : MonoBehaviour {
 
     public static bool isPaused = false;
     public GameObject PauseMenuUI;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         resume();
 	}
 	

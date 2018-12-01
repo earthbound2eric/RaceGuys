@@ -13,13 +13,16 @@ public class PlayerMove : MonoBehaviour {
     public bool isGrounded;
     public float dVelocity;
     bool canPlayerMove = true;
-    //public Text youWinText;
+    public Text youWinText;
+    public GameObject winText;
     // Use this for initialization
     void Start() {
-        //youWinText = GameObject.Find("you win text").GetComponent<Text>();
+        //youWinText = GameObject<Text>.FindGameObjectsWithTag("finish flag");
+        //winText = GameObject.Find("you iwn text");
     }
     // Update is called once per frame
     void Update() {
+
         if (canPlayerMove)
         {
             PlayerMove1();
@@ -87,7 +90,8 @@ public class PlayerMove : MonoBehaviour {
         }
         if (collision.gameObject.tag == "finish flag")
         {
-            //youWinText.enabled = true;
+            //youWinText.GetComponent<Text>().enabled = true;
+            //winText.layer = LayerMask.NameToLayer("inBetween");
             canPlayerMove = false;
             Invoke("win", 0.5f);
         }
@@ -97,7 +101,7 @@ public class PlayerMove : MonoBehaviour {
         //string currentLevel = SceneManager.GetActiveScene().name;
         int currentLevel = int.Parse(SceneManager.GetActiveScene().name[6].ToString());
         PlayerPrefs.SetInt("levelPassed", currentLevel);
-        //youWinText.enabled = false;
+        //youWinText.GetComponent<Text>().enabled = false;
         SceneManager.LoadScene("Level Select Screen");
     }
 }
