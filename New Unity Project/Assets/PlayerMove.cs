@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class PlayerMove : MonoBehaviour {
     public int playerSpeed = 10;
     private bool facingRight = false;
@@ -12,10 +13,10 @@ public class PlayerMove : MonoBehaviour {
     public bool isGrounded;
     public float dVelocity;
     bool canPlayerMove = true;
-
+    //public Text youWinText;
     // Use this for initialization
     void Start() {
-
+        //youWinText = GameObject.Find("you win text").GetComponent<Text>();
     }
     // Update is called once per frame
     void Update() {
@@ -86,6 +87,7 @@ public class PlayerMove : MonoBehaviour {
         }
         if (collision.gameObject.tag == "finish flag")
         {
+            //youWinText.enabled = true;
             canPlayerMove = false;
             Invoke("win", 0.5f);
         }
@@ -95,6 +97,7 @@ public class PlayerMove : MonoBehaviour {
         //string currentLevel = SceneManager.GetActiveScene().name;
         int currentLevel = int.Parse(SceneManager.GetActiveScene().name[6].ToString());
         PlayerPrefs.SetInt("levelPassed", currentLevel);
+        //youWinText.enabled = false;
         SceneManager.LoadScene("Level Select Screen");
     }
 }
