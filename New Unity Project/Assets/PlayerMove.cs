@@ -101,7 +101,9 @@ public class PlayerMove : MonoBehaviour {
         
         Time.timeScale = 0f;
         int currentLevel = int.Parse(SceneManager.GetActiveScene().name[6].ToString());
-        PlayerPrefs.SetInt("levelPassed", currentLevel);
+        if (currentLevel > PlayerPrefs.GetInt("levelPassed")){
+            PlayerPrefs.SetInt("levelPassed", currentLevel);
+        }
         youWinText.gameObject.SetActive(false);
         SceneManager.LoadScene("Level Select Screen");
     }
