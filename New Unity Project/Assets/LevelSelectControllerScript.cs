@@ -43,13 +43,13 @@ public class LevelSelectControllerScript : MonoBehaviour {
                 LevelSixButton.enabled = true;
                 break;
             case 6:
-                //TODO: add you win stuff
+                SceneManager.LoadScene("Win");
                 LevelTwoButton.enabled = true;
                 LevelThreeButton.enabled = true;
                 LevelFourButton.enabled = true;
                 LevelFiveButton.enabled = true;
                 LevelSixButton.enabled = true;
-                //
+                
                 break;
             default:
                 LevelTwoButton.enabled = false;

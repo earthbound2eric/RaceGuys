@@ -16,8 +16,7 @@ public class EnemyMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         deltax = transform.position - lastposition;
-        float test = deltax.x;
-        float test2 = lastposition.x;
+        float test = deltax.x;        
 
         if (test > 0 && facingRight == false)
         {
