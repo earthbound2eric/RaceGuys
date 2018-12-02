@@ -1024,6 +1024,7 @@ GameObject:
   - component: {fileID: 328430856}
   - component: {fileID: 328430855}
   - component: {fileID: 328430854}
+  - component: {fileID: 328430858}
   m_Layer: 0
   m_Name: opossum-1
   m_TagString: enemy
@@ -1128,6 +1129,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &328430858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 328430853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6c8daecf0206c043ba877b02ac9d380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &346423791
 GameObject:
   m_ObjectHideFlags: 0
