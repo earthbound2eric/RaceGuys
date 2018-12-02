@@ -19,6 +19,7 @@ public class Death : MonoBehaviour {
         deathcount.text = "Deaths: " + numofDeaths.ToString();
         if (gameObject.transform.position.y<-3)
         {
+            
             hasDied = true;
             numofDeaths++;
             PlayerPrefs.SetInt("deaths", numofDeaths);
@@ -26,13 +27,16 @@ public class Death : MonoBehaviour {
         }
         if(hasDied==true)
         {
+            SoundManagerScript.PlaySound("playerDeath");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "enemy")
         {
+           
             hasDied = true;
             numofDeaths++;
             PlayerPrefs.SetInt("deaths", numofDeaths);

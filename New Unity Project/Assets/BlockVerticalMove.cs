@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BlockVerticalMove : MonoBehaviour {
-    public float minX = 0f;
-    public float maxX = 2f;
+    public float minY;
+    public float maxY;
     // Use this for initialization
     void Start () {
-        minX = transform.position.y;
-        maxX = transform.position.y + 2;
+        minY = transform.position.y-2;
+        maxY = transform.position.y+2;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = new Vector2(transform.position.x, Mathf.PingPong(Time.time, maxX) - minX / 2f);
+        transform.position = new Vector2(transform.position.x, Mathf.PingPong(Time.time * 2, maxY) + minY );// 2f
     }
 }

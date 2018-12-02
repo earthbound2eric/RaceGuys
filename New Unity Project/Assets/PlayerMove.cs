@@ -48,6 +48,7 @@ public class PlayerMove : MonoBehaviour {
     }
     void Jump()
     {
+        SoundManagerScript.PlaySound("playerJump");
         transform.parent = null;
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(playerSpeed, 0);
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * (playerJumpPower - gameObject.GetComponent<Rigidbody2D>().velocity.y));
@@ -59,6 +60,7 @@ public class PlayerMove : MonoBehaviour {
     {
         if (collider.gameObject.tag == "jumpAgain")
         {
+            SoundManagerScript.PlaySound("playerGem");
             Destroy(collider.gameObject);
             isGrounded = true;
         }
@@ -88,13 +90,15 @@ public class PlayerMove : MonoBehaviour {
         }
         if (collision.gameObject.tag == "finish flag")
         {
+            SoundManagerScript.PlaySound("playerWin");
             youWinText.gameObject.SetActive(true);
             canPlayerMove = false;
-            Invoke("win", 1f);
+            Invoke("win", 2.35f);
         }
     }
     private void win()
     {
+        
         Time.timeScale = 0f;
         int currentLevel = int.Parse(SceneManager.GetActiveScene().name[6].ToString());
         PlayerPrefs.SetInt("levelPassed", currentLevel);
