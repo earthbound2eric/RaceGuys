@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using TMPro;
 
 public class PlayerMove : MonoBehaviour {
     public int playerSpeed = 10;
@@ -13,12 +13,10 @@ public class PlayerMove : MonoBehaviour {
     public bool isGrounded;
     public float dVelocity;
     bool canPlayerMove = true;
-    public Text youWinText;
-    public GameObject winText;
+    public TextMeshProUGUI youWinText;
     // Use this for initialization
     void Start() {
-        //youWinText = GameObject<Text>.FindGameObjectsWithTag("finish flag");
-        //winText = GameObject.Find("you iwn text");
+        Time.timeScale = 1f;
     }
     // Update is called once per frame
     void Update() {
@@ -90,18 +88,17 @@ public class PlayerMove : MonoBehaviour {
         }
         if (collision.gameObject.tag == "finish flag")
         {
-            //youWinText.GetComponent<Text>().enabled = true;
-            //winText.layer = LayerMask.NameToLayer("inBetween");
+            youWinText.gameObject.SetActive(true);
             canPlayerMove = false;
-            Invoke("win", 0.5f);
+            Invoke("win", 1f);
         }
     }
     private void win()
     {
-        //string currentLevel = SceneManager.GetActiveScene().name;
+        Time.timeScale = 0f;
         int currentLevel = int.Parse(SceneManager.GetActiveScene().name[6].ToString());
         PlayerPrefs.SetInt("levelPassed", currentLevel);
-        //youWinText.GetComponent<Text>().enabled = false;
+        youWinText.gameObject.SetActive(false);
         SceneManager.LoadScene("Level Select Screen");
     }
 }

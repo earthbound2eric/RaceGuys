@@ -2,26 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class startGame : MonoBehaviour {
-    private float time = 0.0f;
-    public Text timer;
-    public int minutes;
-    public int seconds;
-    public string timerString;
-
+    public float time;
+    public TextMeshProUGUI timerText;
+    public double currentTime;
     // Use this for initialization
     void Start () {
-	}
+        currentTime = PlayerPrefs.GetFloat("totalTime", time);
+        time = PlayerPrefs.GetFloat("totalTime", time);
+        timerText = GetComponent<TextMeshProUGUI>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        time += Time.deltaTime;
-        minutes = (int)(time % 60);
-        seconds = (int)(time / 60)%60;
-        //timer.GetComponent.guiText = time.ToString();
-        timerString = string.Format("{0:00}:{1:00}", minutes, seconds);
-        //timer.text = timerString;
+        time += Time.deltaTime * (01.00f);
+        PlayerPrefs.SetFloat("totalTime", time);
+        timerText.text = "Timer: " + time.ToString("f2"); 
     }
 
 }
