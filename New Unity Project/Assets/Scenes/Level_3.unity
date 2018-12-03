@@ -1945,7 +1945,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a623c675b95c1348b4c2af8ec27c867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasDied: 0
   deathcount: {fileID: 624072296}
   numofDeaths: 0
 --- !u!114 &624072295
@@ -3497,6 +3496,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1082549521}
   - component: {fileID: 1082549520}
+  - component: {fileID: 1082549522}
   m_Layer: 0
   m_Name: Beginning_Ground (3)
   m_TagString: Untagged
@@ -3563,6 +3563,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1082549522
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1082549519}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 2.24}
+    newSize: {x: 0.16, y: 2.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 2.24}
+  m_EdgeRadius: 0
 --- !u!1 &1141755203
 GameObject:
   m_ObjectHideFlags: 0
@@ -4213,7 +4238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a623c675b95c1348b4c2af8ec27c867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasDied: 0
   deathcount: {fileID: 0}
   numofDeaths: 0
 --- !u!114 &1525188493
@@ -6228,7 +6252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a623c675b95c1348b4c2af8ec27c867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasDied: 0
   deathcount: {fileID: 0}
   numofDeaths: 0
 --- !u!114 &1957537824
@@ -6654,7 +6677,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a623c675b95c1348b4c2af8ec27c867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasDied: 0
   deathcount: {fileID: 624072296}
   numofDeaths: 0
 --- !u!114 &2037915055

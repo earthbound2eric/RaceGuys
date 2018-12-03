@@ -8,13 +8,14 @@ public class SoundManagerScript : MonoBehaviour
     // Use this for initialization
     public static AudioClip playerDeath;
     public static AudioClip playerJump;
+    public static AudioClip underwater;
     public static AudioClip playerWin;
     public static AudioClip playerGem;
     static AudioSource audioSrc;
 
     void Start()
     {
-
+        underwater = Resources.Load<AudioClip>("underwater");
         playerDeath = Resources.Load<AudioClip>("playerDeath");
         playerJump = Resources.Load<AudioClip>("playerJump");
         playerWin = Resources.Load<AudioClip>("playerWin");
@@ -44,6 +45,9 @@ public class SoundManagerScript : MonoBehaviour
                 break;
             case "playerGem":
                 audioSrc.PlayOneShot(playerGem);
+                break;
+            case "underwater":
+                audioSrc.PlayOneShot(underwater);
                 break;
         }
 

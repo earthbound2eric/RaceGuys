@@ -12,7 +12,8 @@ public class CameraMove : MonoBehaviour {
     public float yMin = 1.0f;
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
-	}
+        SoundManagerScript.PlaySound("underwater");
+    }
 	
 	// Update is called once per frame
 	void Update () {
