@@ -16,7 +16,7 @@ public class SoundManagerScript : MonoBehaviour
     void Start()
     {
         underwater = Resources.Load<AudioClip>("underwater");
-        playerDeath = Resources.Load<AudioClip>("playerDeath");
+        
         playerJump = Resources.Load<AudioClip>("playerJump");
         playerWin = Resources.Load<AudioClip>("playerWin");
         playerGem = Resources.Load<AudioClip>("playerGem");
@@ -33,10 +33,8 @@ public class SoundManagerScript : MonoBehaviour
     public static void PlaySound(string clip)
     {
         switch (clip)
-        {
-            case "playerDeath":
-                audioSrc.PlayOneShot(playerDeath);
-                break;
+        {            
+               
             case "playerJump":
                 audioSrc.PlayOneShot(playerJump);
                 break;
